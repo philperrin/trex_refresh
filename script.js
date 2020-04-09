@@ -4,6 +4,6 @@ tableau.extensions.initializeAsync().then(() => {
 });
 
 function refresh() {
-    [`let dashboard = tableau.extensions.dashboardContent.dashboard;`](https://tableau.github.io/extensions-api/docs/index.html)
+    let dashboard = tableau.extensions.dashboardContent.dashboard;
+    let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
 }
-let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
