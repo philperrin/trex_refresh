@@ -4,9 +4,10 @@ tableau.extensions.initializeAsync().then(() => {
 });
 
 function refresh() {
-    let dashboard = tableau.extensions.dashboardContent.dashboard;
-    let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
-    selectedWorksheet.getDataSourcesAsync().then(dataSources => {
-        let selectedDataSource = dataSources.find(ds => ds.name === 'Orders');
-    })
+  let dashboard = tableau.extensions.dashboardContent.dashboard;
+  let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
+  selectedWorksheet.getDataSourcesAsync().then(dataSources => {
+    let selectedDataSource = dataSources.find(ds => ds.name === 'Orders');
+    selectedDataSource.refreshAsync();
+  })
 }
