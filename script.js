@@ -4,9 +4,10 @@ tableau.extensions.initializeAsync().then(() => {
 
 function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
+            const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
-            var Rcount = tableau.DataTable.totalRowCount;
+            var Rcount = worksheets.Worksheet.getSummaryDataAsync();
             dashboard.worksheets.forEach(function (worksheet) { 
                 dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
             }); 
