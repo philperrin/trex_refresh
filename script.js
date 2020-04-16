@@ -21,7 +21,7 @@ function refresh() {
             }); 
   document.open();
   document.write("Data Last Refreshed:<br>");
-  document.write(date());
+  document.write(Date());
   document.write("<br><button onclick='refresh()'>Update Data</button>");
   document.close();
 } 
