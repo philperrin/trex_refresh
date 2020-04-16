@@ -2,7 +2,7 @@ tableau.extensions.initializeAsync().then(() => {
   console.log('I have been initialized!!') 
 }); 
 
-function refreshAllDataSources() {  
+function refresh() {  
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
