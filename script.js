@@ -6,6 +6,7 @@ function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
+            let Rcount = tableau.extensions.DataTable.totalRowCount();
             dashboard.worksheets.forEach(function (worksheet) { 
                 dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
             }); 
@@ -22,7 +23,8 @@ function refresh() {
   document.open();
   document.write("Data Last Refreshed:<br>");
   document.write(Date());
-  document.write("<br><button onclick='refresh()'>Update Data</button>");
+  document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
+  document.write("Previous Row Count: "Rcount);
   document.close();
 } 
 
