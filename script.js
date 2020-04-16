@@ -1,13 +1,22 @@
-/*global tableau*/
-tableau.extensions.initializeAsync().then(() => {
-  console.log('I have been initialized!!')
-});
+tableau.extensions.initializeAsync().then(() => { 
+  console.log('I have been initialized!!') 
+}); 
 
-function refresh() {
-  let dashboard = tableau.extensions.dashboardContent.dashboard;
-  let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
-  selectedWorksheet.getDataSourcesAsync().then(dataSources => {
-    let selectedDataSource = dataSources.find(ds => ds.name === 'Orders');
-    selectedDataSource.refreshAsync();
-  })
-}
+function refreshAllDataSources() {  
+            const dashboard = tableau.extensions.dashboardContent.dashboard; 
+            let dataSourceFetchPromises = []; 
+            let dashboardDataSources = {};
+            dashboard.worksheets.forEach(function (worksheet) { 
+                dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
+            }); 
+            Promise.all(dataSourceFetchPromises).then(function (fetchResults) { 
+                fetchResults.forEach(function (dataSourcesForWorksheet) { 
+                    dataSourcesForWorksheet.forEach(function (dataSource) { 
+                        if (!dashboardDataSources[dataSource.id]) { 
+                            dashboardDataSources[dataSource.id] = dataSource; 
+                            dataSource.refreshAsync(); 
+                        } 
+                    }); 
+                }); 
+            }); 
+} 
