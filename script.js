@@ -3,8 +3,6 @@ tableau.extensions.initializeAsync().then(() => {
 }); 
 
 function refresh() {
-  var date = new Date();
-  var dateString = new Date(date.getTime() - date.getTimezoneOffset() *60000 )).toISOString().split("T")[0];
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
@@ -23,7 +21,7 @@ function refresh() {
             }); 
   document.open();
   document.write("Data Last Refreshed:<br>");
-  document.write(dateString);
+  document.write(date());
   document.write("<br><button onclick='refresh()'>Update Data</button>");
   document.close();
 } 
