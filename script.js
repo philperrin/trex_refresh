@@ -24,7 +24,8 @@ function refresh() {
   document.write("Data Last Refreshed:<br>");
   document.write(Date());
   document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
-  document.write("Previous Row Count: "Rcount);
+  document.write("Previous Row Count: ");
+  document.write(Rcount);
   document.close();
 } 
 
