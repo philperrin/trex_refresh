@@ -6,7 +6,7 @@ function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
-            let Rcount = tableau.extensions.DataTable.totalRowCount();
+            let Rcount = tableau.DataTable.totalRowCount();
             dashboard.worksheets.forEach(function (worksheet) { 
                 dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
             }); 
