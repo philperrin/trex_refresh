@@ -40,6 +40,7 @@ function refresh() {
   document.write("Previous Row Count: ");
   document.write(values.length);
   document.close();
-  console.log(values.length);
+  console.log(values);
+  console.log(list);
 } 
 
