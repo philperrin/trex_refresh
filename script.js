@@ -46,9 +46,9 @@ function refresh() {
             });
         });
 
-
+// repurpose rowcount code here for values2
         paragraph.textContent += '\r\n \r\nNew Order Count: ';
-        paragraph.textContent += values2.length;
+//        paragraph.textContent += values2.length;
                 
     });
 }
