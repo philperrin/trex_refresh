@@ -43,10 +43,24 @@ function refresh() {
                     }
                 })
             })
+            
+            
+                 tableau.extensions.dashboardContent.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+            const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
+            const list = [];
+            for (const row of dataTable.data) {
+                list.push(row[field.index].value);
+            }
+            const values = list.filter((el, i, arr) => arr.indexOf(el) === i);   
+            
+            
+          })  
+            
+            
         })
 
-
-/*        tableau.extensions.dashboardContent.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+/*
+        tableau.extensions.dashboardContent.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
             const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
             const list = [];
             for (const row of dataTable.data) {
@@ -54,7 +68,7 @@ function refresh() {
             }
             const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
  */           paragraph.textContent += '\r\n \r\nNew Order Count: ';
- //           paragraph.textContent += values.length;
+            paragraph.textContent += values.length;
 
 
         })
