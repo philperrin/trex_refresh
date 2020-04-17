@@ -45,10 +45,10 @@ function refresh() {
     });
 
 
-    dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
-      const field2 = dataTable.columns.find((column) => column.fieldName === 'Order ID');
+    dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable2) => {
+      const field2 = dataTable2.columns.find((column) => column.fieldName === 'Order ID');
       const list2 = [];
-      for (const row of dataTable.data) {
+      for (const row of dataTable2.data) {
         list2.push(row[field2.index].value);
       }
       const values2 = list2.filter((el, i, arr) => arr.indexOf(el) === i);
