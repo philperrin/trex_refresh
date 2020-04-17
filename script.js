@@ -7,11 +7,9 @@ var list = [];
 
 function refresh() {
     const dashboard = tableau.extensions.dashboardContent.dashboard;
-    //            const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
-    //            let dataSourceFetchPromises = []; 
-    //            let dashboardDataSources = {};
-    //            var values = [];
-    //            var list = [];
+    const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
+    let dataSourceFetchPromises = [];
+    let dashboardDataSources = {};
 
     dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
         let field = dataTable.columns.find(column => column.fieldName === "Order ID");
@@ -28,24 +26,24 @@ function refresh() {
         document.write("Previous Order Count: ");
         document.write(values.length);
 
-        /*            dashboard.worksheets.forEach(function (worksheet) { 
-                       dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
-                   }); 
-                    Promise.all(dataSourceFetchPromises).then(function (fetchResults) { 
-                        fetchResults.forEach(function (dataSourcesForWorksheet) { 
-                            dataSourcesForWorksheet.forEach(function (dataSource) { 
-                                if (!dashboardDataSources[dataSource.id]) { 
-                                    dashboardDataSources[dataSource.id] = dataSource; 
-                                    dataSource.refreshAsync(); 
-                                } 
-                            }); 
-                        }); 
-                    }); 
-                    
-         
-        */
+        dashboard.worksheets.forEach(function(worksheet) {
+            dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
+        });
+        Promise.all(dataSourceFetchPromises).then(function(fetchResults) {
+            fetchResults.forEach(function(dataSourcesForWorksheet) {
+                dataSourcesForWorksheet.forEach(function(dataSource) {
+                    if (!dashboardDataSources[dataSource.id]) {
+                        dashboardDataSources[dataSource.id] = dataSource;
+                        dataSource.refreshAsync();
+                    }
+                });
+            });
+        });
+
+
+
         document.write("<br>New Order Count: ");
- //       document.write(values2.length);
+        //       document.write(values2.length);
         document.close();
     });
 }
