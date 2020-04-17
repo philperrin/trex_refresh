@@ -52,7 +52,7 @@ function refresh() {
         for (let row of dataTable.data) {
             list.push(row[field2.index].value);
         }
-        let values2 = list2.filter((el, i, arr) => arr.indexOf(el) === i);
+        let values2 = list2.filter((el, i, arr) => arr.indexOf(el) === i));
 
         paragraph.textContent += '\r\n \r\nNew Order Count: ';
         paragraph.textContent += values2.length;
