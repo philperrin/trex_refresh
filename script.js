@@ -7,15 +7,15 @@ function refresh() {
             const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
-            var values = [];
+            let values = [];
             
-  tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
+  tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
   let field = dataTable.columns.find(column => column.fieldName === "Row ID");
   let list = [];
   for (let row of dataTable.data) {
     list.push(row[field.index].value);
   }
-  let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+  values = list.filter((el, i, arr) => arr.indexOf(el) === i);
   console.log(values.length)
 });
   
