@@ -13,8 +13,8 @@ function refresh() {
     //            var values = [];
     //            var list = [];
 
-    dashboard.worksheets.find(w => w.name === "Sales and Profit per person").getUnderlyingDataAsync().then(dataTable => {
-        let field = dataTable.columns.find(column => column.fieldName === "Sales");
+    dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
+        let field = dataTable.columns.find(column => column.fieldName === "Order ID");
         let list = [];
         for (let row of dataTable.data) {
             list.push(row[field.index].value);
@@ -25,10 +25,8 @@ function refresh() {
         document.write("Data Last Refreshed:<br>");
         document.write(Date());
         document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
-        document.write("Previous Row Count: ");
+        document.write("Previous Order Count: ");
         document.write(values.length);
-        document.close();
-
 
         /*            dashboard.worksheets.forEach(function (worksheet) { 
                        dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
@@ -46,5 +44,6 @@ function refresh() {
                     
          
         */
+        document.close();
     });
 }
