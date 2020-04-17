@@ -45,7 +45,10 @@ function refresh() {
     });
 
 
-    dashboard.worksheets.find((w2) => w2.name === 'records').getUnderlyingDataAsync().then((dataTable2) => {
+
+    });
+  
+      dashboard.worksheets.find((w2) => w2.name === 'records').getUnderlyingDataAsync().then((dataTable2) => {
       const field2 = dataTable2.columns.find((column2) => column2.fieldName === 'Order ID');
       const list2 = [];
       for (const row2 of dataTable2.data) {
@@ -56,6 +59,5 @@ function refresh() {
 
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values2.length;
-    });
   });
 }
