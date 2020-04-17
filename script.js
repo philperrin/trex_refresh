@@ -22,8 +22,9 @@ function refresh() {
         document.open();
         document.write("Data Last Refreshed:<br>");
         document.write(Date());
-        document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
-        document.write("Previous Order Count: ");
+        document.write("<br>");
+        document.write("<button onclick='refresh()'>Update Data</button>");
+        document.write("<br>Previous Order Count: ");
         document.write(values.length);
 
         dashboard.worksheets.forEach(function(worksheet) {
