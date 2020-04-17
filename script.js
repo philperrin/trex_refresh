@@ -26,6 +26,7 @@ function refresh(callback) {
             list.push(row[field.index].value);
         }
         const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+        console.log("old values: ");
         console.log(values.length);
 
         paragraph.textContent = 'Data Last Refreshed: \r\n';
