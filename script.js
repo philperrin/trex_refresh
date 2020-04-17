@@ -10,7 +10,7 @@ function refresh() {
 //            var values = [];
 //            var list = [];
             
-tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
+dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
   let field = dataTable.columns.find(column => column.fieldName === "State");
   let list = [];
   for (let row of dataTable.data) {
@@ -40,7 +40,7 @@ tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "M
   document.write(Date());
   document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
   document.write("Previous Row Count: ");
-  document.write(values.length);
+ // document.write(values.length);
   document.close();
   console.log(values);
   console.log(list);
