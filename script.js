@@ -49,3 +49,30 @@ function refresh() {
     paragraph.textContent += '\r\n \r\nNew Order Count: ';
     paragraph.textContent += '';
 }
+
+function newcount(){
+     {
+    const {
+        dashboard
+    } = tableau.extensions.dashboardContent;
+    const {
+        worksheets
+    } = tableau.extensions.dashboardContent.dashboard;
+    const dataSourceFetchPromises = [];
+    const dashboardDataSources = {};
+
+    tableau.extensions.initializeAsync().then(() => {
+        console.log('Re-initialized');
+    });
+    dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+        const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
+        const list = [];
+        for (const row of dataTable.data) {
+            list.push(row[field.index].value);
+        }
+        const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+        console.log("new count: ");
+        console.log(values.length);
+    });
+     }
+}
