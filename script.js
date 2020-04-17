@@ -6,6 +6,10 @@ const values = [];
 const list = [];
 const paragraph = document.getElementById('p');
 
+
+//part 1: how many orders are in the dataset and report that, use callback to 
+
+
 function refresh(callback) {
     const {
         dashboard
@@ -33,10 +37,11 @@ function refresh(callback) {
         paragraph.textContent += Date();
         paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
         paragraph.textContent += values.length;
+callback();
+    
 
 
-
-        refresh(function() {
+refresh2(function() {
 
             const dashboard = tableau.extensions.dashboardContent.dashboard;
             let dataSourceFetchPromises = [];
@@ -56,13 +61,11 @@ function refresh(callback) {
             });
         })
 
-        paragraph.textContent += '\r\n \r\nNew Order Count: ';
-        paragraph.textContent += '';
-        callback();
-    });
+       callback();
+    
 
 
-    refresh(function() {
+    refresh3(function() {
         const dashboard = tableau.extensions.dashboardContent.dashboard;
         let dataSourceFetchPromises = [];
         let dashboardDataSources = {};
@@ -85,34 +88,4 @@ function refresh(callback) {
         paragraph.textContent += '';
         callback();
     })
-
-
-    refresh(function() {
-        {
-            const {
-                dashboard
-            } = tableau.extensions.dashboardContent;
-            const {
-                worksheets
-            } = tableau.extensions.dashboardContent.dashboard;
-            const dataSourceFetchPromises = [];
-            const dashboardDataSources = {};
-
-            tableau.extensions.initializeAsync().then(() => {
-                console.log('Re-initialized');
-            });
-            dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
-                const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
-                const list = [];
-                for (const row of dataTable.data) {
-                    list.push(row[field.index].value);
-                }
-                const values2 = list.filter((el, i, arr) => arr.indexOf(el) === i);
-                console.log("new count: ");
-                console.log(values2.length);
-                paragraph.textContent += '\r\n \r\nNew Order Count: ';
-                paragraph.textContent += values2.length;
-            });
-        }
-    })
-}
+})}
