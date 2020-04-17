@@ -19,9 +19,9 @@ function refresh() {
               values = list.filter((el, i, arr) => arr.indexOf(el) === i);
             });
   
-            dashboard.worksheets.forEach(function (worksheet) { 
-                dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
-            }); 
+/*            dashboard.worksheets.forEach(function (worksheet) { 
+               dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
+           }); 
             Promise.all(dataSourceFetchPromises).then(function (fetchResults) { 
                 fetchResults.forEach(function (dataSourcesForWorksheet) { 
                     dataSourcesForWorksheet.forEach(function (dataSource) { 
@@ -32,6 +32,8 @@ function refresh() {
                     }); 
                 }); 
             }); 
+            
+  */
   document.open();
   document.write("Data Last Refreshed:<br>");
   document.write(Date());
