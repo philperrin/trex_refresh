@@ -26,7 +26,7 @@ function refresh() {
         document.write("<button type='button' onclick='refresh()'>Refresh</button>");
         document.write("<br>Previous Order Count: ");
         document.write(values.length);
-
+/*
         dashboard.worksheets.forEach(function(worksheet) {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
         });
@@ -41,7 +41,7 @@ function refresh() {
             });
         });
 
-
+*/
 
         document.write("<br>New Order Count: ");
         //       document.write(values2.length);
