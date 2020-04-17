@@ -24,11 +24,9 @@ function refresh() {
         let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
         console.log(values.length)
         
-        paragraph.textContent = "Data Last Refreshed:";
-        paragraph.textContent += "\r\n";
+        paragraph.textContent = "Data Last Refreshed:<br />";
         paragraph.textContent += Date();
-        paragraph.textContent += "\r\n";
-        paragraph.textContent += "Previous Order Count: "
+        paragraph.textContent += "<br />Previous Order Count: ";
         paragraph.textContent += values.length;
         
 /*        
