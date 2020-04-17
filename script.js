@@ -4,6 +4,7 @@ tableau.extensions.initializeAsync().then(() => {
 
 var values = [];
 var list = [];
+var paragraph = document.getElementById("p");
 
 function refresh() {
     const dashboard = tableau.extensions.dashboardContent.dashboard;
@@ -19,6 +20,13 @@ function refresh() {
         }
         let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
         console.log(values.length)
+        
+        paragraph.textContent += "Data Last Refreshed:<br>"
+        paragraph.textContent += Date();
+        paragraph.textContent += "<br><br>Previous Order Count: ";
+        paragraph.textContent += values.length;
+        
+/*        
         document.open();
         document.write("Data Last Refreshed:<br>");
         document.write(Date());
@@ -26,6 +34,10 @@ function refresh() {
         document.write("<button type='button' onclick='refresh()'>Refresh</button>");
         document.write("<br>Previous Order Count: ");
         document.write(values.length);
+        
+*/
+        
+        
 /*
         dashboard.worksheets.forEach(function(worksheet) {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
@@ -41,10 +53,10 @@ function refresh() {
             });
         });
 
-*/
 
         document.write("<br>New Order Count: ");
         //       document.write(values2.length);
         document.close();
+        */
     });
 }
