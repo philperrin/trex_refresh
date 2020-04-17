@@ -23,24 +23,14 @@ function refresh() {
         }
         let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
         console.log(values.length)
-        
+
         paragraph.textContent = 'Data Last Refreshed: \r\n';
         paragraph.textContent += Date();
         paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
         paragraph.textContent += values.length;
-        
-/*        
-        document.open();
-        document.write("Data Last Refreshed:<br>");
-        document.write(Date());
-        document.write("<br>");
-        document.write("<button type='button' onclick='refresh()'>Refresh</button>");
-        document.write("<br>Previous Order Count: ");
-        document.write(values.length);
-        
-*/
-        
-        
+
+
+
 
         dashboard.worksheets.forEach(function(worksheet) {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
