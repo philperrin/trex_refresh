@@ -34,8 +34,8 @@ function refresh() {
         paragraph.textContent += values.length;
 
 
-//        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
-        tableau.extensions.dashboardContent.dashboard.forEach((worksheet) => {
+       tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
+
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
         });
         Promise.all(dataSourceFetchPromises).then((fetchResults) => {
@@ -54,7 +54,7 @@ function refresh() {
 
         })
 
-
+/*
         const {
             dashboard
         } = tableau.extensions.dashboardContent;
@@ -70,7 +70,7 @@ function refresh() {
                 list.push(row[field.index].value);
             }
             const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-
+*/
 
         })
 
@@ -87,6 +87,6 @@ function refresh() {
         paragraph.textContent += values.length;
 
 
-    })
-} //)
+    }
+ //)
 //}
