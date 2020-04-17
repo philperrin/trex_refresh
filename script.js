@@ -1,11 +1,12 @@
 tableau.extensions.initializeAsync().then(() => {
 	console.log('I have been initialized!!');
 });
+
 const values = [];
 const list = [];
 const paragraph = document.getElementById('p');
 
-function refresh() {
+refresh(function() {
 	const {
 		dashboard
 	} = tableau.extensions.dashboardContent;
@@ -67,7 +68,7 @@ function refresh() {
 
 	paragraph.textContent += '\r\n \r\nNew Order Count: ';
 	paragraph.textContent += '';
-}
+
 
 function newcount() {
 	{
@@ -89,11 +90,13 @@ function newcount() {
 			for (const row of dataTable.data) {
 				list.push(row[field.index].value);
 			}
-			const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+			const values2 = list.filter((el, i, arr) => arr.indexOf(el) === i);
 			console.log("new count: ");
-			console.log(values.length);
+			console.log(values2.length);
 			paragraph.textContent += '\r\n \r\nNew Order Count: ';
-			paragraph.textContent += values.length;
+			paragraph.textContent += values2.length;
 		});
 	}
 }
+
+	});
