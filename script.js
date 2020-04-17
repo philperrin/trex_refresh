@@ -4,7 +4,7 @@ tableau.extensions.initializeAsync().then(() => {
 
 function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
-            const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
+//            const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
 //            let dataSourceFetchPromises = []; 
 //            let dashboardDataSources = {};
 //            var values = [];
@@ -34,15 +34,16 @@ dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(d
                 }); 
             }); 
             
-  */
+ 
   document.open();
   document.write("Data Last Refreshed:<br>");
   document.write(Date());
   document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
   document.write("Previous Row Count: ");
- // document.write(values.length);
+  document.write(values.length);
   document.close();
   console.log(values);
   console.log(list);
+  */
 } 
 
