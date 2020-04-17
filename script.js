@@ -40,7 +40,7 @@ function refresh() {
             dashboardDataSources[dataSource.id] = dataSource;
             dataSource.refreshAsync();      
             
-            
+   /*         
       tableau.extensions.dashboardContent.worksheets.find((w2) => w2.name === 'records').getUnderlyingDataAsync().then((dataTable2) => {
       const field2 = dataTable2.columns.find((column2) => column2.fieldName === 'Order ID');
       const list2 = [];
@@ -52,6 +52,7 @@ function refresh() {
 
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values2.length;
+      */
 
       });
     };
