@@ -5,12 +5,6 @@ tableau.extensions.initializeAsync().then(() => {
 const values = [];
 const list = [];
 const paragraph = document.getElementById('p');
-
-
-//part 1: how many orders are in the dataset and report that, use callback to 
-
-
-function refresh(callback) {
     const {
         dashboard
     } = tableau.extensions.dashboardContent;
@@ -19,6 +13,11 @@ function refresh(callback) {
     } = tableau.extensions.dashboardContent.dashboard;
     const dataSourceFetchPromises = [];
     const dashboardDataSources = {};
+
+//part 1: how many orders are in the dataset and report that, use callback to 
+
+
+function refresh(callback) {
 
     tableau.extensions.initializeAsync().then(() => {
         console.log('Re-initialized');
