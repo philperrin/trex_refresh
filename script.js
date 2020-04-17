@@ -9,7 +9,7 @@ function refresh() {
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
             var Rcount = [];
-            dtable.totalRowCount(Rcount);
+            dtable.totalRowCount();
             dashboard.worksheets.forEach(function (worksheet) { 
                 dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
             }); 
