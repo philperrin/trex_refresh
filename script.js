@@ -13,7 +13,7 @@ function refresh() {
 //            var list = [];
             
 dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
-  let field = dataTable.columns.find(column => column.fieldName === "Row ID");
+  let field = dataTable.columns.find(column => column.fieldName === "Number of Records");
   let list = [];
   for (let row of dataTable.data) {
     list.push(row[field.index].value);
