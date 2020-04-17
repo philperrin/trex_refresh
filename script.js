@@ -54,7 +54,7 @@ function refresh() {
       paragraph.textContent += values2.length;
 
       });
-    });
+    };
 
 
 
