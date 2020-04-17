@@ -7,7 +7,7 @@ function refresh() {
             const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
-            let values = [];
+            var values = [];
             
   tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
   let field = dataTable.columns.find(column => column.fieldName === "Row ID");
@@ -39,5 +39,6 @@ function refresh() {
   document.write("Previous Row Count: ");
   document.write(values.length);
   document.close();
+  console.log(values.length);
 } 
 
