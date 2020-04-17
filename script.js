@@ -73,6 +73,8 @@ function newcount(){
         const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
         console.log("new count: ");
         console.log(values.length);
+        paragraph.textContent += '\r\n \r\nNew Order Count: ';
+        paragraph.textContent += values.length;
     });
      }
 }
