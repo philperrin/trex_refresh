@@ -1,88 +1,99 @@
 tableau.extensions.initializeAsync().then(() => {
-    console.log('I have been initialized!!');
+	console.log('I have been initialized!!');
 });
 const values = [];
 const list = [];
 const paragraph = document.getElementById('p');
 
 function refresh() {
-    const {
-        dashboard
-    } = tableau.extensions.dashboardContent;
-    const {
-        worksheets
-    } = tableau.extensions.dashboardContent.dashboard;
-    const dataSourceFetchPromises = [];
-    const dashboardDataSources = {};
+	const {
+		dashboard
+	} = tableau.extensions.dashboardContent;
+	const {
+		worksheets
+	} = tableau.extensions.dashboardContent.dashboard;
+	const dataSourceFetchPromises = [];
+	const dashboardDataSources = {};
 
-    tableau.extensions.initializeAsync().then(() => {
-        console.log('Re-initialized');
-    });
-    dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
-        const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
-        const list = [];
-        for (const row of dataTable.data) {
-            list.push(row[field.index].value);
-        }
-        const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-        console.log(values.length);
+	tableau.extensions.initializeAsync().then(() => {
+		console.log('Re-initialized');
+	});
+	dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+		const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
+		const list = [];
+		for (const row of dataTable.data) {
+			list.push(row[field.index].value);
+		}
+		const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+		console.log(values.length);
 
-        paragraph.textContent = 'Data Last Refreshed: \r\n';
-        paragraph.textContent += Date();
-        paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
-        paragraph.textContent += values.length;
+		paragraph.textContent = 'Data Last Refreshed: \r\n';
+		paragraph.textContent += Date();
+		paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
+		paragraph.textContent += values.length;
 
-        
-          let dashboard = tableau.extensions.dashboardContent.dashboard;
-  let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
-  selectedWorksheet.getDataSourcesAsync().then(dataSources => {
-    let selectedDataSource = dataSources.find(ds => ds.name === 'Orders');
-    selectedDataSource.refreshAsync();
-  })
-/*        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
-            dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
-        });
-        Promise.all(dataSourceFetchPromises).then((fetchResults) => {
-            fetchResults.forEach((dataSourcesForWorksheet) => {
-                dataSourcesForWorksheet.forEach((dataSource) => {
-                    if (!dashboardDataSources[dataSource.id]) {
-                        dashboardDataSources[dataSource.id] = dataSource;
-                        dataSource.refreshAsync();
-                    }
-                })
-            })
-        })
-  */    })
-  
-    paragraph.textContent += '\r\n \r\nNew Order Count: ';
-    paragraph.textContent += '';
+
+		const dashboard = tableau.extensions.dashboardContent.dashboard;
+		let dataSourceFetchPromises = [];
+		let dashboardDataSources = {};
+		dashboard.worksheets.forEach(function(worksheet) {
+			dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
+		});
+		Promise.all(dataSourceFetchPromises).then(function(fetchResults) {
+			fetchResults.forEach(function(dataSourcesForWorksheet) {
+				dataSourcesForWorksheet.forEach(function(dataSource) {
+					if (!dashboardDataSources[dataSource.id]) {
+						dashboardDataSources[dataSource.id] = dataSource;
+						dataSource.refreshAsync();
+					}
+				});
+			});
+		});
+		/*        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
+		            dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
+		        });
+		        Promise.all(dataSourceFetchPromises).then((fetchResults) => {
+		            fetchResults.forEach((dataSourcesForWorksheet) => {
+		                dataSourcesForWorksheet.forEach((dataSource) => {
+		                    if (!dashboardDataSources[dataSource.id]) {
+		                        dashboardDataSources[dataSource.id] = dataSource;
+		                        dataSource.refreshAsync();
+		                    }
+		                })
+		            })
+		        })
+		  */
+	})
+
+	paragraph.textContent += '\r\n \r\nNew Order Count: ';
+	paragraph.textContent += '';
 }
 
-function newcount(){
-     {
-    const {
-        dashboard
-    } = tableau.extensions.dashboardContent;
-    const {
-        worksheets
-    } = tableau.extensions.dashboardContent.dashboard;
-    const dataSourceFetchPromises = [];
-    const dashboardDataSources = {};
+function newcount() {
+	{
+		const {
+			dashboard
+		} = tableau.extensions.dashboardContent;
+		const {
+			worksheets
+		} = tableau.extensions.dashboardContent.dashboard;
+		const dataSourceFetchPromises = [];
+		const dashboardDataSources = {};
 
-    tableau.extensions.initializeAsync().then(() => {
-        console.log('Re-initialized');
-    });
-    dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
-        const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
-        const list = [];
-        for (const row of dataTable.data) {
-            list.push(row[field.index].value);
-        }
-        const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-        console.log("new count: ");
-        console.log(values.length);
-        paragraph.textContent += '\r\n \r\nNew Order Count: ';
-        paragraph.textContent += values.length;
-    });
-     }
+		tableau.extensions.initializeAsync().then(() => {
+			console.log('Re-initialized');
+		});
+		dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+			const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
+			const list = [];
+			for (const row of dataTable.data) {
+				list.push(row[field.index].value);
+			}
+			const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+			console.log("new count: ");
+			console.log(values.length);
+			paragraph.textContent += '\r\n \r\nNew Order Count: ';
+			paragraph.textContent += values.length;
+		});
+	}
 }
