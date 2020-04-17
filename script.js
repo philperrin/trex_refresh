@@ -9,8 +9,8 @@ function refresh() {
             let dashboardDataSources = {};
             var values = [];
             
-  tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
-  let field = dataTable.columns.find(column => column.fieldName === "Row ID");
+  tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
+  let field = dataTable.columns.find(column => column.fieldName === "State");
   let list = [];
   for (let row of dataTable.data) {
     list.push(row[field.index].value);
