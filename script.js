@@ -2,7 +2,8 @@ tableau.extensions.initializeAsync().then(() => {
   console.log('I have been initialized!!') 
 }); 
 
-
+var values = [];
+var list = [];
 function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
 //            const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
