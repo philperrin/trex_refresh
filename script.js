@@ -12,7 +12,7 @@ function refresh() {
     let dataSourceFetchPromises = [];
     let dashboardDataSources = {};
 
-    tableau.extensions.initializeAsync().ten(() => {
+    tableau.extensions.initializeAsync().then(() => {
         console.log('Re-initialized')
     });
     dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
