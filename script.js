@@ -2,6 +2,8 @@ tableau.extensions.initializeAsync().then(() => {
   console.log('I have been initialized!!') 
 }); 
 
+global values;
+
 function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
 //            const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
@@ -42,8 +44,9 @@ dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(d
   document.write("Previous Row Count: ");
   document.write(values.length);
   document.close();
-  console.log(values);
-  console.log(list);
   */
+  console.log(values.length);
+  console.log(list);
+ 
 } 
 
