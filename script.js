@@ -64,7 +64,7 @@ function refresh(callback) {
 		            })
 		        })
 		  */
-		  callback();
+		  newcount();
 	})
 
 	paragraph.textContent += '\r\n \r\nNew Order Count: ';
