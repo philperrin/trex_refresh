@@ -44,6 +44,8 @@ function refresh() {
                     
          
         */
+        document.write("<br>New Order Count: ");
+ //       document.write(values2.length);
         document.close();
     });
 }
