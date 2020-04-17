@@ -32,7 +32,14 @@ function refresh() {
         paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
         paragraph.textContent += values.length;
 
-        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
+        
+          let dashboard = tableau.extensions.dashboardContent.dashboard;
+  let selectedWorksheet = dashboard.worksheets.find(w => w.name === 'Sales');
+  selectedWorksheet.getDataSourcesAsync().then(dataSources => {
+    let selectedDataSource = dataSources.find(ds => ds.name === 'Orders');
+    selectedDataSource.refreshAsync();
+  })
+/*        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
         });
         Promise.all(dataSourceFetchPromises).then((fetchResults) => {
@@ -45,7 +52,8 @@ function refresh() {
                 })
             })
         })
-    })
+  */    })
+  
     paragraph.textContent += '\r\n \r\nNew Order Count: ';
     paragraph.textContent += '';
 }
