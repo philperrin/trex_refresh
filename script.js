@@ -23,7 +23,7 @@ function refresh() {
         document.write("Data Last Refreshed:<br>");
         document.write(Date());
         document.write("<br>");
-        document.write("<button onclick='refresh()'>Update Data</button>");
+        document.write("<button type='button' onclick='refresh()'>Refresh</button>");
         document.write("<br>Previous Order Count: ");
         document.write(values.length);
 
