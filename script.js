@@ -5,19 +5,20 @@ tableau.extensions.initializeAsync().then(() => {
 function refresh() {
             const dashboard = tableau.extensions.dashboardContent.dashboard; 
             const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
-            let dataSourceFetchPromises = []; 
-            let dashboardDataSources = {};
-            var values = [];
-            var list = [];
+//            let dataSourceFetchPromises = []; 
+//            let dashboardDataSources = {};
+//            var values = [];
+//            var list = [];
             
-            dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
-              let field = dataTable.columns.find(column => column.fieldName === "State");
-              let list = [];
-                for (let row of dataTable.data) {
-                  list.push(row[field.index].value);
-                }
-              values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-            });
+tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
+  let field = dataTable.columns.find(column => column.fieldName === "State");
+  let list = [];
+  for (let row of dataTable.data) {
+    list.push(row[field.index].value);
+  }
+  let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+  console.log(values)
+});
   
 /*            dashboard.worksheets.forEach(function (worksheet) { 
                dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
