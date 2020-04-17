@@ -70,7 +70,7 @@ function refresh(callback) {
 	paragraph.textContent += '\r\n \r\nNew Order Count: ';
 	paragraph.textContent += '';
 
-
+};
 function newcount() {
 	{
 		const {
@@ -98,6 +98,4 @@ function newcount() {
 			paragraph.textContent += values2.length;
 		});
 	}
-}
-
-	};
+};
