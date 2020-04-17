@@ -8,6 +8,7 @@ function refresh() {
             let dataSourceFetchPromises = []; 
             let dashboardDataSources = {};
             var values = [];
+            var list = [];
             
   tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
   let field = dataTable.columns.find(column => column.fieldName === "State");
