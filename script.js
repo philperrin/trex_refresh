@@ -84,7 +84,7 @@ function refresh() {
                     const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
          */
         paragraph.textContent += '\r\n \r\nNew Order Count: ';
-        paragraph.textContent += values.length;
+        paragraph.textContent += '';
 
 
     }
