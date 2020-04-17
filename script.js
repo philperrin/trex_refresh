@@ -70,10 +70,10 @@ function refresh(callback) {
 
     paragraph.textContent += '\r\n \r\nNew Order Count: ';
     paragraph.textContent += '';
-    newcount();
+    callback();
 };
 
-function newcount() {
+refresh(function() {
     {
         const {
             dashboard
@@ -100,4 +100,4 @@ function newcount() {
             paragraph.textContent += values2.length;
         });
     }
-};
+});
