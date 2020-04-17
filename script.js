@@ -16,7 +16,8 @@ function refresh() {
     list.push(row[field.index].value);
   }
   values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-  console.log(values)
+    console.log(list);
+  console.log(values);
 });
   
             dashboard.worksheets.forEach(function (worksheet) { 
