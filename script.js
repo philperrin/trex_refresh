@@ -25,9 +25,10 @@ function refresh() {
         console.log(values.length)
         
         paragraph.textContent = "Data Last Refreshed:";
-        paragraph.textContent = "\r\n";
+        paragraph.textContent += "\r\n";
         paragraph.textContent += Date();
-        paragraph.textContent += "\r\nPrevious Order Count: "
+        paragraph.textContent += "\r\n";
+        paragraph.textContent += "Previous Order Count: "
         paragraph.textContent += values.length;
         
 /*        
