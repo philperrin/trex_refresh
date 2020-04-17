@@ -10,16 +10,14 @@ function refresh() {
             var values = [];
             var list = [];
             
-  tableau.extensions.dashboardContent.dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
-  let field = dataTable.columns.find(column => column.fieldName === "State");
-  let list = [];
-  for (let row of dataTable.data) {
-    list.push(row[field.index].value);
-  }
-  values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-    console.log(list);
-  console.log(values);
-});
+            dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
+              let field = dataTable.columns.find(column => column.fieldName === "State");
+              let list = [];
+                for (let row of dataTable.data) {
+                  list.push(row[field.index].value);
+                }
+              values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+            });
   
             dashboard.worksheets.forEach(function (worksheet) { 
                 dataSourceFetchPromises.push(worksheet.getDataSourcesAsync()); 
