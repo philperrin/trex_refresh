@@ -32,7 +32,7 @@ function refresh() {
         paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
         paragraph.textContent += values.length;
 
-       tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
+        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
         });
         Promise.all(dataSourceFetchPromises).then((fetchResults) => {
@@ -45,7 +45,7 @@ function refresh() {
                 })
             })
         })
-        })
-        paragraph.textContent += '\r\n \r\nNew Order Count: ';
-        paragraph.textContent += '';
-    }
+    })
+    paragraph.textContent += '\r\n \r\nNew Order Count: ';
+    paragraph.textContent += '';
+}
