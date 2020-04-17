@@ -41,7 +41,7 @@ function refresh() {
 */
         
         
-/*
+
         dashboard.worksheets.forEach(function(worksheet) {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
         });
@@ -57,9 +57,7 @@ function refresh() {
         });
 
 
-        document.write("<br>New Order Count: ");
-        //       document.write(values2.length);
-        document.close();
-        */
+        paragraph.textContent += '\r\n \r\nNew Order Count: ';
+        paragraph.textContent += "";
     });
 }
