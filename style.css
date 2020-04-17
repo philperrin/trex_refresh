@@ -3,10 +3,15 @@
 body {
   font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
   margin: 2em;
+  white-space: pre-line;
 }
 
 h1 {
   font-style: italic;
   color: #373fff;
+  white-space: pre-line;
 }
 
+p {
+  white-space: pre-line;
+}
