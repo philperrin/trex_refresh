@@ -6,7 +6,7 @@ const values = [];
 const list = [];
 const paragraph = document.getElementById('p');
 
-refresh(function() {
+function refresh(callback) {
 	const {
 		dashboard
 	} = tableau.extensions.dashboardContent;
@@ -64,6 +64,7 @@ refresh(function() {
 		            })
 		        })
 		  */
+		  callback();
 	})
 
 	paragraph.textContent += '\r\n \r\nNew Order Count: ';
@@ -99,4 +100,4 @@ function newcount() {
 	}
 }
 
-	});
+	};
