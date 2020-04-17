@@ -46,16 +46,9 @@ function refresh() {
             });
         });
 
-            dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
-        let field2 = dataTable.columns.find(column => column.fieldName === "Order ID");
-        let list2 = [];
-        for (let row of dataTable.data) {
-            list.push(row[field2.index].value);
-        }
-        let values2 = list2.filter((el, i, arr) => arr.indexOf(el) === i);
 
         paragraph.textContent += '\r\n \r\nNew Order Count: ';
         paragraph.textContent += values2.length;
-                )
+                
     });
 }
