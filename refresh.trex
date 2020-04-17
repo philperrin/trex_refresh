@@ -10,6 +10,9 @@
       <url>https://philperrin.github.io/trex_refresh</url>
     </source-location>
     <icon></icon>
+    <permissions>
+        <permission>full data</permission>
+    </permissions>
   </dashboard-extension>
   <resources>
     <resource id="name">
