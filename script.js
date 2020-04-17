@@ -34,7 +34,7 @@ function refresh() {
         paragraph.textContent += values.length;
 
 
-        dashboard.worksheets.forEach((worksheet) => {
+        tableau.extensions.dashboardContent.worksheets.forEach((worksheet) => {
             dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
         });
         Promise.all(dataSourceFetchPromises).then((fetchResults) => {
