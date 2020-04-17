@@ -45,8 +45,10 @@ dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(d
   document.write(values.length);
   document.close();
   */
-  console.log(values.length);
-  console.log(list);
+
  
 } 
+
+  console.log(values.length);
+  console.log(list);
 
