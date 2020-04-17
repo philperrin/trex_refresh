@@ -20,6 +20,13 @@ dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(d
   }
   let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
   console.log(values.length)
+  document.open();
+  document.write("Data Last Refreshed:<br>");
+  document.write(Date());
+  document.write("<br><button onclick='refresh()'>Update Data</button><br><br>");
+  document.write("Previous Row Count: ");
+  document.write(values.length);
+  document.close();
 });
   
 /*            dashboard.worksheets.forEach(function (worksheet) { 
@@ -48,7 +55,4 @@ dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(d
 
  
 } 
-
-  console.log(values.length);
-  console.log(list);
 
