@@ -17,7 +17,7 @@ dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(d
     list.push(row[field.index].value);
   }
   let values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-  console.log(values)
+  console.log(values.length)
 });
   
 /*            dashboard.worksheets.forEach(function (worksheet) { 
