@@ -12,8 +12,8 @@ function refresh() {
 //            var values = [];
 //            var list = [];
             
-dashboard.worksheets.find(w => w.name === "Map").getUnderlyingDataAsync().then(dataTable => {
-  let field = dataTable.columns.find(column => column.fieldName === "State");
+dashboard.worksheets.find(w => w.name === "records").getUnderlyingDataAsync().then(dataTable => {
+  let field = dataTable.columns.find(column => column.fieldName === "Row ID");
   let list = [];
   for (let row of dataTable.data) {
     list.push(row[field.index].value);
