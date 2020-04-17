@@ -54,14 +54,14 @@ function refresh() {
         })
 
 
-    const {
-        dashboard
-    } = tableau.extensions.dashboardContent;
-    const {
-        worksheets
-    } = tableau.extensions.dashboardContent.dashboard;
-    const dataSourceFetchPromises = [];
-    const dashboardDataSources = {};
+        const {
+            dashboard
+        } = tableau.extensions.dashboardContent;
+        const {
+            worksheets
+        } = tableau.extensions.dashboardContent.dashboard;
+        const dataSourceFetchPromises = [];
+        const dashboardDataSources = {};
         dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
             const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
             const list = [];
