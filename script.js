@@ -58,9 +58,10 @@ var parttwo = function(second) {
     });
 
     second(partthree);
-  }, 4000);  //timer for debugging
+    console.log("refreshed");
+  }, 5000);  //timer for debugging
 
-  console.log("refreshed");}
+  console.log("refreshing");}
 
 
 
@@ -72,7 +73,7 @@ var partthree = function(args) {
     const dataSourceFetchPromises = [];
     const dashboardDataSources = {};
     tableau.extensions.initializeAsync().then(() => {
-      console.log('Re-initialized');
+      console.log('Initializing refreshed count');
     });
     tableau.extensions.dashboardContent.dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
       const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
@@ -80,9 +81,9 @@ var partthree = function(args) {
       for (const row of dataTable.data) {
         list.push(row[field.index].value);
       }
-      const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+      const values2 = list.filter((el, i, arr) => arr.indexOf(el) === i);
       console.log("new values: ");
-      console.log(values.length);
+      console.log(values2.length);
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values.length;
     })
