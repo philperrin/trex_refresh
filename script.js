@@ -34,7 +34,7 @@ function refresh(callback) {
       callback(partthree);
     }
   })
-}
+console.log("part 1 done");}
 
 
 var parttwo = function(second) {
@@ -58,7 +58,7 @@ var parttwo = function(second) {
     });
 
     second(partthree);
-    console.log("refreshed");
+    console.log("part 2 done");
   }, 0);  //timer for debugging
 
   console.log("refreshing");}
@@ -88,4 +88,4 @@ var partthree = function(args) {
       paragraph.textContent += values2.length;
     })
   }, 100) //timer for debugging
-}
+console.log("part 3 done");}
