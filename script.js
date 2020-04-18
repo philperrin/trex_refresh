@@ -52,13 +52,14 @@ var parttwo = function(second) {
           if (!dashboardDataSources[dataSource.id]) {
             dashboardDataSources[dataSource.id] = dataSource;
             dataSource.refreshAsync();
+            console.log("refreshed")
           }
         });
       });
     });
 
     second(partthree);
-  }, 750);  //timer for debugging
+  }, 1750);  //timer for debugging
 }
 
 var partthree = function(args) {
