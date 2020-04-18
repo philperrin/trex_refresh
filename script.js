@@ -59,7 +59,7 @@ var parttwo = function(second) {
     });
 
     second(partthree);
-  }, 1750);  //timer for debugging
+  }, 4000);  //timer for debugging
 
   console.log("refreshed");}
 
