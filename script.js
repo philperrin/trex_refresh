@@ -25,9 +25,9 @@ function refresh(callback) {
     console.log("old values: ");
     console.log(values.length);
 
-    paragraph.textContent = 'Data Last Refreshed: \r\n';
+    paragraph.textContent.bold() = 'Data Last Refreshed: \r\n';
     paragraph.textContent += Date();
-    paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
+    paragraph.textContent.bold() += '\r\n \r\nPrevious Order Count: ';
     paragraph.textContent += values.length;
 
     if (callback) {
@@ -68,7 +68,9 @@ var partthree = function(args) {
     const worksheets = tableau.extensions.dashboardContent.dashboard;
     const dataSourceFetchPromises = [];
     const dashboardDataSources = {};
-
+    tableau.extensions.initializeAsync().then(() => {
+      console.log('Re-initialized');
+    });
     tableau.extensions.dashboardContent.dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
       const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
       const list = [];
@@ -78,7 +80,7 @@ var partthree = function(args) {
       const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
       console.log("new values: ");
       console.log(values.length);
-      paragraph.textContent += '\r\n \r\nNew Order Count: ';
+      paragraph.textContent.bold() += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values.length;
     })
   }, 0) //timer for debugging
