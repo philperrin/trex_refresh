@@ -68,9 +68,7 @@ var partthree = function(args) {
     const worksheets = tableau.extensions.dashboardContent.dashboard;
     const dataSourceFetchPromises = [];
     const dashboardDataSources = {};
-    tableau.extensions.initializeAsync().then(() => {
-      console.log('Re-initialized');
-    });
+
     tableau.extensions.dashboardContent.dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
       const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
       const list = [];
