@@ -59,7 +59,7 @@ var parttwo = function(second) {
 
     second(partthree);
     console.log("refreshed");
-  }, 5000);  //timer for debugging
+  }, 0);  //timer for debugging
 
   console.log("refreshing");}
 
@@ -87,5 +87,5 @@ var partthree = function(args) {
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values2.length;
     })
-  }, 0) //timer for debugging
+  }, 100) //timer for debugging
 }
