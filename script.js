@@ -58,7 +58,7 @@ var parttwo = function(second) {
     });
 
     second(partthree);
-  }, 1000);
+  }, 0);  //timer for debugging
 }
 
 var partthree = function(args) {
@@ -81,5 +81,5 @@ var partthree = function(args) {
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values.length;
     })
-  }, 1000)
+  }, 0) //timer for debugging
 }
