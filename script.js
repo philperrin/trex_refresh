@@ -38,51 +38,52 @@ function refresh(callback) {
       callback(partthree);
     }
   })
+}
 
-  var parttwo = function(second) {
-    setTimeout(function() {
 
-      const dashboard = tableau.extensions.dashboardContent.dashboard;
-      let dataSourceFetchPromises = [];
-      let dashboardDataSources = {};
-      dashboard.worksheets.forEach(function(worksheet) {
-        dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
-      });
-      Promise.all(dataSourceFetchPromises).then(function(fetchResults) {
-        fetchResults.forEach(function(dataSourcesForWorksheet) {
-          dataSourcesForWorksheet.forEach(function(dataSource) {
-            if (!dashboardDataSources[dataSource.id]) {
-              dashboardDataSources[dataSource.id] = dataSource;
-              dataSource.refreshAsync();
-            }
-          });
+var parttwo = function(second) {
+  setTimeout(function() {
+
+    const dashboard = tableau.extensions.dashboardContent.dashboard;
+    let dataSourceFetchPromises = [];
+    let dashboardDataSources = {};
+    dashboard.worksheets.forEach(function(worksheet) {
+      dataSourceFetchPromises.push(worksheet.getDataSourcesAsync());
+    });
+    Promise.all(dataSourceFetchPromises).then(function(fetchResults) {
+      fetchResults.forEach(function(dataSourcesForWorksheet) {
+        dataSourcesForWorksheet.forEach(function(dataSource) {
+          if (!dashboardDataSources[dataSource.id]) {
+            dashboardDataSources[dataSource.id] = dataSource;
+            dataSource.refreshAsync();
+          }
         });
       });
+    });
 
-      second(partthree);
-    }, 1000);
-  }
+    second(partthree);
+  }, 1000);
+}
 
-  var partthree = function(args) {
-    setTimeout(function() {
+var partthree = function(args) {
+  setTimeout(function() {
 
-      const dashboard = tableau.extensions.dashboardContent;
-      const worksheets = tableau.extensions.dashboardContent.dashboard;
-      const dataSourceFetchPromises = [];
-      const dashboardDataSources = {};
-      tableau.extensions.initializeAsync().then(() => {
-        console.log('Re-initialized');
-      });
-      dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
-        const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
-        const list = [];
-        for (const row of dataTable.data) {
-          list.push(row[field.index].value);
-        }
-        const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-        paragraph.textContent += '\r\n \r\nNew Order Count: ';
-        paragraph.textContent += values.length;
-      })
-    }, 1000)
-  }
+    const dashboard = tableau.extensions.dashboardContent;
+    const worksheets = tableau.extensions.dashboardContent.dashboard;
+    const dataSourceFetchPromises = [];
+    const dashboardDataSources = {};
+    tableau.extensions.initializeAsync().then(() => {
+      console.log('Re-initialized');
+    });
+    dashboard.worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+      const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
+      const list = [];
+      for (const row of dataTable.data) {
+        list.push(row[field.index].value);
+      }
+      const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
+      paragraph.textContent += '\r\n \r\nNew Order Count: ';
+      paragraph.textContent += values.length;
+    })
+  }, 1000)
 }
