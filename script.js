@@ -60,8 +60,10 @@ var parttwo = function(second) {
 
     second(partthree);
   }, 1750);  //timer for debugging
-  console.log("refreshed")
-}
+
+  console.log("refreshed");}
+
+
 
 var partthree = function(args) {
   setTimeout(function() {
