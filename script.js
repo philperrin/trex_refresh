@@ -52,7 +52,6 @@ var parttwo = function(second) {
           if (!dashboardDataSources[dataSource.id]) {
             dashboardDataSources[dataSource.id] = dataSource;
             dataSource.refreshAsync();
-            console.log("refreshed")
           }
         });
       });
