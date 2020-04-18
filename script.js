@@ -30,11 +30,13 @@ function refresh(callback) {
     paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
     paragraph.textContent += values.length;
 
+
+  })
+console.log("part 1 done");
+
     if (callback) {
       callback(partthree);
-    }
-  })
-console.log("part 1 done");}
+    }}
 
 
 var parttwo = function(second) {
