@@ -87,8 +87,9 @@ var partthree = function(args) {
       const values2 = list.filter((el, i, arr) => arr.indexOf(el) === i);
       console.log("new values: ");
       console.log(values2.length);
+      console.log("execution complete.");
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
       paragraph.textContent += values2.length;
     })
   }, 100) //timer for debugging
-console.log("part 3 done");}
+console.log("part 3:");}
