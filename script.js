@@ -25,9 +25,9 @@ function refresh(callback) {
     console.log("old values: ");
     console.log(values.length);
 
-    paragraph.textContent = 'Data Last Refreshed: \r\n';
+    paragraph.textContent = '<strong>Data Last Refreshed: </strong>\r\n';
     paragraph.textContent += Date();
-    paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
+    paragraph.textContent += '\r\n \r\n<strong>Previous Order Count: </strong>';
     paragraph.textContent += values.length;
 
     if (callback) {
@@ -78,7 +78,9 @@ var partthree = function(args) {
         list.push(row[field.index].value);
       }
       const values = list.filter((el, i, arr) => arr.indexOf(el) === i);
-      paragraph.textContent += '\r\n \r\nNew Order Count: ';
+      console.log("new values: ");
+      console.log(values.length);
+      paragraph.textContent += '\r\n \r\n<strong>New Order Count: </strong>';
       paragraph.textContent += values.length;
     })
   }, 0) //timer for debugging
