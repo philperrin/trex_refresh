@@ -10,7 +10,7 @@ const paragraph = document.getElementById('p');
 //part 1: how many orders are in the dataset and report that, use callback to 
 
 
-function refresh(callback) {
+function refresh((callback) {
     const dashboard = tableau.extensions.dashboardContent;
     const worksheets = tableau.extensions.dashboardContent.dashboard;
     const dataSourceFetchPromises = [];
@@ -35,7 +35,7 @@ function refresh(callback) {
         paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
         paragraph.textContent += values.length;
         callback();
-
+)
 
 
         refresh(function(callback) {
