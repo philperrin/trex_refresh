@@ -58,7 +58,7 @@ var parttwo = function(second) {
     });
 
     second(partthree);
-  }, 0);  //timer for debugging
+  }, 750);  //timer for debugging
 }
 
 var partthree = function(args) {
