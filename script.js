@@ -85,7 +85,7 @@ var partthree = function(args) {
       console.log("new values: ");
       console.log(values2.length);
       paragraph.textContent += '\r\n \r\nNew Order Count: ';
-      paragraph.textContent += values.length;
+      paragraph.textContent += values2.length;
     })
   }, 0) //timer for debugging
 }
