@@ -30,13 +30,14 @@ function refresh(callback) {
     paragraph.textContent += '\r\n \r\nPrevious Order Count: ';
     paragraph.textContent += values.length;
 
+    
+    if (callback) {
+      callback(partthree);
+    }
 
   })
 console.log("part 1 done");
-
-    if (callback) {
-      callback(partthree);
-    }}
+}
 
 
 var parttwo = function(second) {
@@ -57,9 +58,9 @@ var parttwo = function(second) {
           }
         });
       });
-    });
+   second(partthree); });
 
-    second(partthree);
+    
     console.log("part 2 done");
   }, 0);  //timer for debugging
 
