@@ -19,7 +19,7 @@ function refresh(callback) {
     console.log('Re-initialized');
   });
 
-  tableau.extensions.dashboardContent.dashboard.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
+  worksheets.find((w) => w.name === 'records').getUnderlyingDataAsync().then((dataTable) => {
     const field = dataTable.columns.find((column) => column.fieldName === 'Order ID');
     const list = [];
     for (const row of dataTable.data) {
